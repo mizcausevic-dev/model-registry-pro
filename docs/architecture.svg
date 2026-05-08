@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 540" font-family="ui-monospace, 'JetBrains Mono', 'SF Mono', Consolas, monospace">
+  <defs>
+    <style>
+      .bg { fill: #0B0C10; }
+      .surface { fill: #1F2833; }
+      .border { stroke: #45A29E; stroke-width: 1.5; fill: none; }
+      .border-accent { stroke: #66FCF1; stroke-width: 2; fill: none; }
+      .text-primary { fill: #C5C6C7; font-size: 13px; }
+      .text-accent { fill: #66FCF1; font-size: 15px; font-weight: 600; }
+      .text-dim { fill: #45A29E; font-size: 11px; }
+      .text-title { fill: #66FCF1; font-size: 20px; font-weight: 700; letter-spacing: 1px; }
+      .arrow { stroke: #66FCF1; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+      .arrow-dim { stroke: #45A29E; stroke-width: 1; fill: none; marker-end: url(#arrowhead-dim); stroke-dasharray: 4,3; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#66FCF1"/>
+    </marker>
+    <marker id="arrowhead-dim" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#45A29E"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="540" class="bg"/>
+
+  <!-- Title -->
+  <text x="460" y="40" text-anchor="middle" class="text-title">MODEL-REGISTRY-PRO :: ARCHITECTURE</text>
+  <line x1="180" y1="55" x2="740" y2="55" class="border"/>
+
+  <!-- API consumer (top) -->
+  <rect x="350" y="80" width="220" height="50" rx="6" class="surface"/>
+  <rect x="350" y="80" width="220" height="50" rx="6" class="border-accent"/>
+  <text x="460" y="100" text-anchor="middle" class="text-accent">Engineer / CI / Reviewer</text>
+  <text x="460" y="120" text-anchor="middle" class="text-dim">register | request_promotion | approve</text>
+
+  <path d="M460,135 L460,170" class="arrow"/>
+
+  <!-- ModelRegistry facade -->
+  <rect x="280" y="180" width="360" height="60" rx="6" class="surface"/>
+  <rect x="280" y="180" width="360" height="60" rx="6" class="border-accent"/>
+  <text x="460" y="205" text-anchor="middle" class="text-accent">ModelRegistry (facade)</text>
+  <text x="460" y="225" text-anchor="middle" class="text-dim">CRUD | stages | approvals | lineage</text>
+
+  <!-- Four child components -->
+  <!-- Stages dict -->
+  <rect x="40" y="290" width="200" height="100" rx="6" class="surface"/>
+  <rect x="40" y="290" width="200" height="100" rx="6" class="border"/>
+  <text x="140" y="315" text-anchor="middle" class="text-accent">Stage FSM</text>
+  <text x="140" y="338" text-anchor="middle" class="text-primary">DEV -> STAGING</text>
+  <text x="140" y="356" text-anchor="middle" class="text-primary">-> PROD -> DEPRECATED</text>
+  <text x="140" y="374" text-anchor="middle" class="text-dim">VALID_TRANSITIONS table</text>
+
+  <!-- Approval workflow -->
+  <rect x="260" y="290" width="200" height="100" rx="6" class="surface"/>
+  <rect x="260" y="290" width="200" height="100" rx="6" class="border"/>
+  <text x="360" y="315" text-anchor="middle" class="text-accent">Approval Workflow</text>
+  <text x="360" y="338" text-anchor="middle" class="text-primary">PENDING -> APPROVED</text>
+  <text x="360" y="356" text-anchor="middle" class="text-primary">PENDING -> REJECTED</text>
+  <text x="360" y="374" text-anchor="middle" class="text-dim">audit trail per request</text>
+
+  <!-- Lineage graph -->
+  <rect x="480" y="290" width="200" height="100" rx="6" class="surface"/>
+  <rect x="480" y="290" width="200" height="100" rx="6" class="border"/>
+  <text x="580" y="315" text-anchor="middle" class="text-accent">LineageGraph</text>
+  <text x="580" y="338" text-anchor="middle" class="text-primary">parent -&gt; child links</text>
+  <text x="580" y="356" text-anchor="middle" class="text-primary">ancestors / descendants</text>
+  <text x="580" y="374" text-anchor="middle" class="text-dim">BFS over derivations</text>
+
+  <!-- PromotionPolicy -->
+  <rect x="700" y="290" width="200" height="100" rx="6" class="surface"/>
+  <rect x="700" y="290" width="200" height="100" rx="6" class="border"/>
+  <text x="800" y="315" text-anchor="middle" class="text-accent">PromotionPolicy</text>
+  <text x="800" y="338" text-anchor="middle" class="text-primary">requires_approval()</text>
+  <text x="800" y="356" text-anchor="middle" class="text-primary">can_approve()</text>
+  <text x="800" y="374" text-anchor="middle" class="text-dim">DefaultPolicy / OpenPolicy</text>
+
+  <!-- Connectors -->
+  <path d="M340,240 L160,290" class="arrow-dim"/>
+  <path d="M400,240 L360,290" class="arrow-dim"/>
+  <path d="M520,240 L580,290" class="arrow-dim"/>
+  <path d="M580,240 L780,290" class="arrow-dim"/>
+
+  <!-- Bottom outputs -->
+  <line x1="100" y1="430" x2="820" y2="430" class="border"/>
+  <text x="460" y="455" text-anchor="middle" class="text-accent">Query API:</text>
+
+  <rect x="100" y="475" width="160" height="34" rx="4" fill="#1F2833" stroke="#34D399" stroke-width="1"/>
+  <text x="180" y="496" text-anchor="middle" fill="#34D399" font-size="12">production_version()</text>
+
+  <rect x="285" y="475" width="160" height="34" rx="4" fill="#1F2833" stroke="#66FCF1" stroke-width="1"/>
+  <text x="365" y="496" text-anchor="middle" fill="#66FCF1" font-size="12">by_stage(stage)</text>
+
+  <rect x="470" y="475" width="160" height="34" rx="4" fill="#1F2833" stroke="#FBBF24" stroke-width="1"/>
+  <text x="550" y="496" text-anchor="middle" fill="#FBBF24" font-size="12">pending_approvals()</text>
+
+  <rect x="655" y="475" width="160" height="34" rx="4" fill="#1F2833" stroke="#A78BFA" stroke-width="1"/>
+  <text x="735" y="496" text-anchor="middle" fill="#A78BFA" font-size="12">ancestors() / descendants()</text>
+</svg>

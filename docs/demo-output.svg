@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 580" font-family="ui-monospace, 'JetBrains Mono', 'SF Mono', Consolas, Menlo, monospace">
+  <defs>
+    <style>
+      .term-bg { fill: #0B0C10; }
+      .header { fill: #1F2833; }
+      .dot-r { fill: #ff5f56; }
+      .dot-y { fill: #ffbd2e; }
+      .dot-g { fill: #27c93f; }
+      .header-text { fill: #45A29E; font-size: 11px; }
+      .text { fill: #C5C6C7; font-size: 13px; }
+      .accent { fill: #66FCF1; font-size: 13px; font-weight: 600; }
+      .dim { fill: #45A29E; font-size: 13px; }
+      .green { fill: #34D399; font-size: 13px; font-weight: 600; }
+      .yellow { fill: #FBBF24; font-size: 13px; font-weight: 600; }
+      .purple { fill: #A78BFA; font-size: 13px; }
+      .heading { fill: #66FCF1; font-size: 14px; font-weight: 700; letter-spacing: 1px; }
+    </style>
+  </defs>
+
+  <rect width="980" height="580" rx="8" class="term-bg"/>
+
+  <!-- Title bar -->
+  <rect width="980" height="32" rx="8" class="header"/>
+  <rect y="22" width="980" height="10" class="header"/>
+  <circle cx="20" cy="16" r="6" class="dot-r"/>
+  <circle cx="40" cy="16" r="6" class="dot-y"/>
+  <circle cx="60" cy="16" r="6" class="dot-g"/>
+  <text x="490" y="20" text-anchor="middle" class="header-text">python examples/approval_workflow.py</text>
+
+  <g transform="translate(20, 60)">
+    <text x="0" y="14" class="dim">============================================================</text>
+    <text x="0" y="34" class="heading">  MODEL-REGISTRY-PRO :: APPROVAL WORKFLOW DEMO</text>
+    <text x="0" y="54" class="dim">============================================================</text>
+
+    <text x="0" y="86" class="accent">[1/4]</text>
+    <text x="50" y="86" class="text">Registered 3 model versions:</text>
+    <text x="0" y="106" class="text">      <tspan class="accent">rag-agent:1.0.0</tspan> (initial RAG agent over docs corpus)</text>
+    <text x="0" y="124" class="text">      <tspan class="accent">rag-agent:2.0.0</tspan> (fine-tuned on customer Q&amp;A logs)</text>
+    <text x="0" y="142" class="text">      <tspan class="accent">rag-agent:3.0.0</tspan> (RLHF over v2 with thumbs-up feedback)</text>
+
+    <text x="0" y="174" class="accent">[2/4]</text>
+    <text x="50" y="174" class="text">Promoting rag-agent:3.0.0 DEV -&gt; STAGING (<tspan class="green">auto-approved</tspan>)...</text>
+    <text x="0" y="194" class="text">      Status: <tspan class="green">approved</tspan> | Stage: <tspan class="green">staging</tspan></text>
+
+    <text x="0" y="226" class="accent">[3/4]</text>
+    <text x="50" y="226" class="text">Requesting STAGING -&gt; PROD (<tspan class="yellow">requires approval</tspan>)...</text>
+    <text x="0" y="246" class="text">      Approval id=2 | State: <tspan class="yellow">pending</tspan></text>
+    <text x="0" y="264" class="text">      Stage frozen at: <tspan class="green">staging</tspan></text>
+    <text x="0" y="282" class="text">      Pending queue size: <tspan class="yellow">1</tspan></text>
+
+    <text x="0" y="314" class="accent">[4/4]</text>
+    <text x="50" y="314" class="text">Alice approves...</text>
+    <text x="0" y="334" class="text">      Final state: <tspan class="green">approved</tspan> by <tspan class="accent">alice</tspan></text>
+    <text x="0" y="352" class="text">      Stage now: <tspan class="yellow">PROD</tspan></text>
+
+    <text x="0" y="384" class="accent">Lineage of rag-agent:3.0.0:</text>
+    <text x="0" y="404" class="text">      &lt;- <tspan class="purple">rag-agent:2.0.0</tspan></text>
+    <text x="0" y="422" class="text">      &lt;- <tspan class="purple">rag-agent:1.0.0</tspan></text>
+
+    <text x="0" y="454" class="text">Current production version: <tspan class="yellow">rag-agent:3.0.0</tspan></text>
+
+    <text x="0" y="486" class="dim">============================================================</text>
+    <text x="0" y="506" class="heading">  WORKFLOW COMPLETE</text>
+    <text x="0" y="526" class="dim">============================================================</text>
+  </g>
+</svg>

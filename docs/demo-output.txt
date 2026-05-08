@@ -1,0 +1,30 @@
+============================================================
+  MODEL-REGISTRY-PRO :: APPROVAL WORKFLOW DEMO
+============================================================
+
+[1/4] Registered 3 model versions:
+      rag-agent:1.0.0 (initial RAG agent over docs corpus)
+      rag-agent:2.0.0 (fine-tuned on customer Q&A logs)
+      rag-agent:3.0.0 (RLHF over v2 with thumbs-up feedback)
+
+[2/4] Promoting rag-agent:3.0.0 DEV -> STAGING (auto-approved)...
+      Status: approved | Stage: staging
+
+[3/4] Requesting STAGING -> PROD (requires approval)...
+      Approval id=2 | State: pending
+      Stage frozen at: staging
+      Pending queue size: 1
+
+[4/4] Alice approves...
+      Final state: approved by alice
+      Stage now: PROD
+
+Lineage of rag-agent:3.0.0:
+      <- rag-agent:2.0.0
+      <- rag-agent:1.0.0
+
+Current production version: rag-agent:3.0.0
+
+============================================================
+  WORKFLOW COMPLETE
+============================================================

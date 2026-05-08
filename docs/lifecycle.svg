@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" font-family="ui-monospace, 'JetBrains Mono', 'SF Mono', Consolas, monospace">
+  <defs>
+    <style>
+      .bg { fill: #0B0C10; }
+      .text-title { fill: #66FCF1; font-size: 18px; font-weight: 700; letter-spacing: 1px; }
+      .text-dim { fill: #45A29E; font-size: 11px; }
+      .label { fill: #C5C6C7; font-size: 11px; font-style: italic; }
+      .auto { fill: #34D399; font-size: 11px; font-weight: 600; }
+      .gated { fill: #FBBF24; font-size: 11px; font-weight: 600; }
+      .arrow { stroke: #66FCF1; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+      .arrow-auto { stroke: #34D399; stroke-width: 1.5; fill: none; marker-end: url(#arr-green); }
+      .arrow-gated { stroke: #FBBF24; stroke-width: 1.5; fill: none; marker-end: url(#arr-yellow); }
+      .arrow-back { stroke: #A78BFA; stroke-width: 1.2; fill: none; marker-end: url(#arr-purple); stroke-dasharray: 4,3; }
+    </style>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#66FCF1"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#34D399"/>
+    </marker>
+    <marker id="arr-yellow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#FBBF24"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#A78BFA"/>
+    </marker>
+  </defs>
+
+  <rect width="920" height="460" class="bg"/>
+
+  <!-- Title -->
+  <text x="460" y="40" text-anchor="middle" class="text-title">MODEL LIFECYCLE :: STAGE TRANSITIONS</text>
+  <line x1="180" y1="55" x2="740" y2="55" stroke="#45A29E" stroke-width="1"/>
+
+  <!-- States as bubbles - horizontal flow -->
+  <!-- DEV -->
+  <circle cx="100" cy="200" r="58" fill="#1F2833" stroke="#66FCF1" stroke-width="2"/>
+  <text x="100" y="195" text-anchor="middle" fill="#66FCF1" font-size="16" font-weight="700">DEV</text>
+  <text x="100" y="215" text-anchor="middle" class="text-dim">register()</text>
+
+  <!-- STAGING -->
+  <circle cx="290" cy="200" r="65" fill="#1F2833" stroke="#34D399" stroke-width="2"/>
+  <text x="290" y="195" text-anchor="middle" fill="#34D399" font-size="16" font-weight="700">STAGING</text>
+  <text x="290" y="215" text-anchor="middle" class="text-dim">eval, integration</text>
+
+  <!-- PROD -->
+  <circle cx="490" cy="200" r="60" fill="#1F2833" stroke="#FBBF24" stroke-width="2"/>
+  <text x="490" y="195" text-anchor="middle" fill="#FBBF24" font-size="16" font-weight="700">PROD</text>
+  <text x="490" y="215" text-anchor="middle" class="text-dim">live traffic</text>
+
+  <!-- DEPRECATED -->
+  <circle cx="690" cy="200" r="68" fill="#1F2833" stroke="#A78BFA" stroke-width="2"/>
+  <text x="690" y="195" text-anchor="middle" fill="#A78BFA" font-size="14" font-weight="700">DEPRECATED</text>
+  <text x="690" y="215" text-anchor="middle" class="text-dim">no new traffic</text>
+
+  <!-- RETIRED -->
+  <circle cx="850" cy="200" r="55" fill="#1F2833" stroke="#F87171" stroke-width="2"/>
+  <text x="850" y="195" text-anchor="middle" fill="#F87171" font-size="14" font-weight="700">RETIRED</text>
+  <text x="850" y="215" text-anchor="middle" class="text-dim">archive</text>
+
+  <!-- Forward transitions -->
+  <!-- DEV -> STAGING : auto (default policy) -->
+  <path d="M158,200 L222,200" class="arrow-auto"/>
+  <text x="190" y="180" text-anchor="middle" class="auto">AUTO</text>
+  <text x="190" y="240" text-anchor="middle" class="label">no approval</text>
+
+  <!-- STAGING -> PROD : gated -->
+  <path d="M355,200 L429,200" class="arrow-gated"/>
+  <text x="392" y="180" text-anchor="middle" class="gated">GATED</text>
+  <text x="392" y="240" text-anchor="middle" class="label">approve()</text>
+
+  <!-- PROD -> DEPRECATED : gated -->
+  <path d="M550,200 L621,200" class="arrow-gated"/>
+  <text x="585" y="180" text-anchor="middle" class="gated">GATED</text>
+  <text x="585" y="240" text-anchor="middle" class="label">deprecate()</text>
+
+  <!-- DEPRECATED -> RETIRED -->
+  <path d="M758,200 L794,200" class="arrow"/>
+  <text x="776" y="180" text-anchor="middle" fill="#66FCF1" font-size="11" font-weight="600">RETIRE</text>
+
+  <!-- Backward / lateral transitions -->
+  <!-- STAGING -> DEV (rollback) -->
+  <path d="M255,250 Q240,300 130,255" class="arrow-back"/>
+  <text x="190" y="305" text-anchor="middle" fill="#A78BFA" font-size="10" font-style="italic">rollback to dev</text>
+
+  <!-- PROD -> STAGING (hotfix recall) -->
+  <path d="M455,250 Q430,310 320,260" class="arrow-back"/>
+  <text x="390" y="335" text-anchor="middle" fill="#A78BFA" font-size="10" font-style="italic">recall to staging</text>
+
+  <!-- DEPRECATED -> PROD (un-deprecate) -->
+  <path d="M655,255 Q620,310 525,255" class="arrow-back"/>
+  <text x="590" y="305" text-anchor="middle" fill="#A78BFA" font-size="10" font-style="italic">un-deprecate</text>
+
+  <!-- DEV -> RETIRED shortcut -->
+  <path d="M100,142 Q480,90 850,142" class="arrow-back"/>
+  <text x="475" y="105" text-anchor="middle" fill="#A78BFA" font-size="10" font-style="italic">scrap (DEV -&gt; RETIRED)</text>
+
+  <!-- Legend at bottom -->
+  <line x1="100" y1="390" x2="820" y2="390" stroke="#45A29E" stroke-width="1"/>
+
+  <line x1="180" y1="425" x2="220" y2="425" class="arrow-auto"/>
+  <text x="270" y="429" class="text-dim">auto-promote</text>
+
+  <line x1="370" y1="425" x2="410" y2="425" class="arrow-gated"/>
+  <text x="460" y="429" class="text-dim">requires approval</text>
+
+  <line x1="570" y1="425" x2="610" y2="425" class="arrow-back"/>
+  <text x="660" y="429" class="text-dim">rollback / recall</text>
+</svg>
