@@ -12,7 +12,8 @@ This log is intentionally written as an engineering record rather than a launch 
 - Tightened the repo story around the real-world operating problem: identity sprawl, tenant-boundary risk, and access-review friction.
 
 ### Why this mattered
-- Existing approaches in IGA suites, ticket-based approvals, and access review campaigns were useful, but they handled process and storage, but not the operator need for fast, explainable control decisions.
+- Existing approaches in IGA suites, ticket-based approvals, and access review campaigns were useful for adjacent workflows.
+- They still missed the core need: fast, explainable control decisions at the moment operators actually needed to act.
 - This release made the repo readable as an operational capability rather than a narrow technical demo.
 
 ## [0.1.0] - 2026-01-19
