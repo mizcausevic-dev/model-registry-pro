@@ -1,70 +1,48 @@
-﻿# Changelog
+# Changelog
 
 All notable changes to this project are documented here.
-
-This log is intentionally written as an engineering record rather than a launch theater timeline. Dates reflect when the concept, design, prototype, and public packaging phases were mature enough to document.
 
 ## [1.0.0] - 2026-05-12
 
 ### Released
-- Published **model-registry-pro** as a public, portfolio-grade identity governance system.
-- Packaged the current implementation, documentation, validation workflow, and proof surfaces into a repo that could be reviewed by engineering, product, and operating stakeholders.
-- Tightened the repo story around the real-world operating problem: identity sprawl, tenant-boundary risk, and access-review friction.
+- Published **model-registry-pro** as a public, portfolio-grade system focused on identity governance.
+- Packaged the current implementation, documentation, validation flow, and proof surfaces into a repo that can be reviewed by technical and operating stakeholders.
+- Clarified the core problem the project is addressing: identity sprawl, tenant-boundary mistakes, and access-review workflows that are technically complete but poorly explained.
 
 ### Why this mattered
-- Existing approaches in IGA suites, ticket-based approvals, and access review campaigns were useful for adjacent workflows.
-- They still missed the core need: fast, explainable control decisions at the moment operators actually needed to act.
-- This release made the repo readable as an operational capability rather than a narrow technical demo.
+- Existing approaches in IGA suites, ticket approvals, and access review campaigns were useful for parts of the workflow.
+- They still left out a fast, legible control layer for access reasoning at the moment decisions are made.
+- This release made the repo read like an operational capability rather than a narrow technical demo.
 
-## [0.1.0] - 2026-01-19
+## [0.1.0] - 2026-01-09
 
 ### Shipped
-- Cut the first coherent internal version of the product shape behind **model-registry-pro**.
-- Standardized the core objects, decision surfaces, and operator outputs around the repo's main working problem.
+- Cut the first coherent internal version of **model-registry-pro** with stable domain objects, review surfaces, and decision outputs.
 - Established the first reviewable version of the architecture described as: Model lifecycle catalog for AI agents: versions, lineage, stage promotion, and approval gates. Audit-friendly governance for which version is in prod, who approved it, and what came before.
+- Focused the repo around actionability instead of passive reporting.
 
-### Notes
-- This milestone was less about polish and more about proving the operating model.
-- The emphasis was on turning a messy domain problem into something a real team could reason about in CI, review, or day-to-day operations.
-
-## [Prototype] - 2025-06-19
+## [Prototype] - 2025-07-19
 
 ### Built
-- Created the first runnable prototype for the repo's core workflow and decision model.
-- Started validating the design against real operating pressures instead of idealized sample flows.
-- Added enough shape to test whether the project could surface action, not just information.
+- Built the first runnable prototype for the repo's main workflow and decision model.
+- Validated the concept against pressure points such as identity sprawl, least-privilege drift, tenant-boundary mistakes, and approval latency.
+- Used the prototype phase to test whether the project could drive action, not just present information.
 
-### Problem pressure
-- The prototype phase was shaped by concrete issues such as identity sprawl, least-privilege drift, tenant-boundary mistakes, and approval latency.
-- This was the point where the project moved from a sketch into something worth hardening.
-
-## [Design Phase] - 2023-08-16
+## [Design Phase] - 2023-10-11
 
 ### Designed
-- Defined the core philosophy for the system:
-  - operator-first
-  - decision-legible
-  - CI- and review-friendly
-  - suitable for mixed technical and business audiences
-- Chose outputs that would make the repo useful to real operators instead of just visually impressive.
-- Focused the design on explainability, evidence, and next-best action rather than passive reporting.
+- Defined the system around operator-first and decision-legible outputs.
+- Chose interfaces and examples that made sense for IAM, platform security, compliance, and internal platform teams.
+- Avoided reducing the project to a generic dashboard, CRUD app, or fashionable wrapper around the stack.
 
-### Rejected approaches
-- Avoided turning the repo into a generic dashboard or CRUD exercise.
-- Avoided thin wrapper patterns that would hide the actual operating problem behind fashionable tooling choices.
-
-## [Idea Origin] - 2023-01-16
+## [Idea Origin] - 2023-01-11
 
 ### Observed
-- The initial idea surfaced while looking at how teams were handling identity sprawl, tenant-boundary risk, and access-review friction.
-- The recurring pattern was that people could often see fragments of the problem, but not the whole operational story in one place.
-
-### Insight
-- The missing product was not another point solution. It was a clearer operating layer that made the work legible to IAM, platform security, and compliance teams.
-- That insight became the basis for **model-registry-pro**.
+- The original idea surfaced while looking at how teams were handling identity sprawl, tenant-boundary mistakes, and access-review workflows that are technically complete but poorly explained.
+- The recurring pattern was that teams had data and tools, but still lacked a usable operating layer for the hardest decisions.
 
 ## [Background Signals] - 2022-08-09
 
 ### Context
-- Earlier platform, governance, and operator-tooling work made one pattern obvious: the dangerous systems are rarely the ones with no controls at all. They are the ones where controls exist, but are fragmented, weakly owned, and hard to read under pressure.
-- That pattern shaped this project long before the public repo existed.
+- Earlier platform, governance, and operator-tooling work made one pattern hard to ignore: the systems that create the most drag are often the ones with partial controls and weak operational coherence, not the ones with no controls at all.
+- That pattern shaped the thinking behind this repo well before the public version existed.
