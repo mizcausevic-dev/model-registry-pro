@@ -193,3 +193,7 @@ MIT - see [LICENSE](./LICENSE).
 
 Built by [Mirza Causevic](https://github.com/mizcausevic-dev) - Part of the
 [mizcausevic-dev](https://github.com/mizcausevic-dev) AI platform engineering portfolio.
+
+---
+
+**Connect:** [LinkedIn](https://www.linkedin.com/in/mirzacausevic/) · [Kinetic Gain](https://kineticgain.com) · [Medium](https://medium.com/@mizcausevic/) · [Skills](https://mizcausevic.com/skills/)
