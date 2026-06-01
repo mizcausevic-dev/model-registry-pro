@@ -1,0 +1,40 @@
+# Dependabot — weekly supply-chain freshness.
+# Generated 2026-06-01 as part of the org-wide security sweep.
+# Security advisories at any severity OPEN their own PRs immediately (default).
+# Routine version bumps batch per ecosystem-week into one PR.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:30"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "07:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "supply-chain"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    groups:
+      dev-dependencies:
+        patterns: ["*"]
+        dependency-type: "development"
+        update-types: ["minor", "patch"]
